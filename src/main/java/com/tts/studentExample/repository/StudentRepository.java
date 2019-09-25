@@ -8,5 +8,5 @@ import com.tts.studentExample.model.Student;
 //5
 @Repository
 public interface StudentRepository extends CrudRepository<Student, Long>{
-	
+	public Student findStudentById(Long id);
 }
