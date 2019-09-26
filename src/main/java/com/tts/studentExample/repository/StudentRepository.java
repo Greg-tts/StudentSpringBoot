@@ -12,4 +12,5 @@ import com.tts.studentExample.model.Student;
 public interface StudentRepository extends CrudRepository<Student, Long>{
 	public Student findStudentById(Long id);
 	public ArrayList<Student> findAll();
+	public ArrayList<Student> findAllStudentsByIsInClub(Boolean isInClub);
 }
