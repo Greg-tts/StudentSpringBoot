@@ -1,7 +1,10 @@
 package com.tts.studentExample.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tts.studentExample.model.Student;
@@ -15,9 +18,15 @@ public class StudentController {
 	private StudentServiceImpl studentServiceImpl;
 	
 	// 6 {
-	@GetMapping("/student/1")
-	public Student index() {
-		return studentServiceImpl.getStudentUsingId(1L);
+	@GetMapping("/student/{id}")
+	public Student getStudent(@PathVariable Long id) {
+		return studentServiceImpl.getStudentUsingId(id);
 	}
 	//}
+	
+	@GetMapping("/students")
+	public ArrayList<Student> getAllStudents(){
+		return studentServiceImpl.getAll();
+	}
+	
 }

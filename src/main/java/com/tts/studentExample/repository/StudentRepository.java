@@ -1,5 +1,7 @@
 package com.tts.studentExample.repository;
 
+import java.util.ArrayList;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,4 +11,5 @@ import com.tts.studentExample.model.Student;
 @Repository
 public interface StudentRepository extends CrudRepository<Student, Long>{
 	public Student findStudentById(Long id);
+	public ArrayList<Student> findAll();
 }
