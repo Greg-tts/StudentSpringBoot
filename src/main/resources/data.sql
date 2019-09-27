@@ -1,1 +1,0 @@
-INSERT INTO student(id, name, gpa, is_in_club) VALUES (1, 'Ernest', 3.8, true), (2, 'Billy', 2.5, false);
