@@ -1,6 +1,9 @@
 package com.tts.studentExample;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -35,10 +38,13 @@ public class StudentServiceTest {
 	StudentRepository studentRepository;
 	
 	private static Student ernest;
+	private static ArrayList<Student> studentList;
 	
 	@Before
 	public void setUp() {
 		ernest = new Student("Ernest", 2.5f, true);
+		studentList = new ArrayList<>();
+		studentList.add(ernest);
 	}
 	
 	@Test
@@ -48,6 +54,13 @@ public class StudentServiceTest {
 		Student found = studentService.getStudentUsingId(1L);
 		
 		assertThat(ernest).isEqualToComparingFieldByField(found);
+	}
+	
+	@Test
+	public void ifFindAll_returnAllStudents(){
+		Mockito.when(studentRepository.findAll()).thenReturn(studentList);
+		ArrayList<Student> found = studentService.getAll();
+		assertEquals(studentList, found);
 	}
 
 }
