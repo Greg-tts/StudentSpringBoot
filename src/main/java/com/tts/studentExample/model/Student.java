@@ -22,6 +22,9 @@ public class Student {
 		this.gpa = gpa;
 		this.isInClub = isInClub;
 	}
+	public Long getId() {
+		return id;
+	}
 	public String getName() {
 		return name;
 	}
